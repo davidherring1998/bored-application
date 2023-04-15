@@ -1,7 +1,10 @@
 const path = require("path");
 const express = require("express");
-const dotenvConfig = require('dotenv').config();
+const dotenvConfig = require("dotenv").config();
 const colors = require("colors");
+
+const errorHandler = require('./middleware/errorHandler')
+const userRoutes = require("./routes/userRoutes");
 
 // Database connection
 const connection = require("./config/connection");
@@ -18,6 +21,9 @@ const PORT = process.env.PORT || 8002;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(errorHandler);
+// Routes
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, (err) => {
   if (!err) {
