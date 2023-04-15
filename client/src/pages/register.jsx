@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+// *******
+import { register, reset } from "../features/auth/authSlice";
+// *******
 import { RiUserShared2Line } from "react-icons/ri";
 import { toast } from "react-toastify";
-import "../css/register.css";
+import "../css/global.css";
 
 function Register() {
   // set form state
@@ -16,6 +21,24 @@ function Register() {
   //   Deconstruct form state
   const { name, username, email, password, passwordTwo } = formData;
 
+  // initialize
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isError, isLoading, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      navigate("/");
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   //   On form submit check password and set userData
   const onSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +51,7 @@ function Register() {
         email,
         password,
       };
+      dispatch(register(userData));
     }
   };
 
@@ -97,7 +121,7 @@ function Register() {
             />
           </div>
           <div className="form-items">
-            <button className="btn register-btn" type="submit">
+            <button className="btn-block" type="submit">
               Submit
             </button>
           </div>
