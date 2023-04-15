@@ -4,19 +4,19 @@
   bottom: 0;
   margin: auto;
   width: 100%;
-  border-top: 1px solid black;
+  border-top: 1px solid coral;
 }
 
 .footer p {
   text-align: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .icons {
   font-size: 1.2rem;
   text-align: center;
 }
-.mid-icon{
-    margin-left: 10px;
-    margin-right: 10px;
+.mid-icon {
+  margin-left: 10px;
+  margin-right: 10px;
 }
