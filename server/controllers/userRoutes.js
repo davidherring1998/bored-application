@@ -52,10 +52,10 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   try {
     // Deconstruct request body
-    const { username, email, password } = req.body;
+    const { email, password } = req.body;
 
     //  Check is credentials are present
-    if (!username || !email || !password) {
+    if (!email || !password) {
       res.json({ msg: `Please enter all required fields.` });
     }
 
@@ -67,7 +67,6 @@ const loginUser = asyncHandler(async (req, res) => {
       res.status(201).json({
         msg: `User successfully logged in.`,
         _id: user.id,
-        username: user.username,
         email: user.email,
         token: generateToken(user.id),
       });
