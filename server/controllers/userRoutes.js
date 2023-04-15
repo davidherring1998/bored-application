@@ -13,7 +13,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
 
     //  Check is credentials are present
-    if (!username || !email || !password) {
+    if (!email || !password) {
       res.json({ msg: `Please enter all required fields.` });
     }
 
@@ -56,7 +56,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     //  Check is credentials are present
     if (!email || !password) {
-      res.json({ msg: `Please enter all required fields.` });
+      res.status(401).json({ msg: `Please enter all required fields.` });
     }
 
     // Find user by their email

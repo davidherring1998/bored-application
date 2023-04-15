@@ -14,21 +14,22 @@ import { GiSurfBoard } from "react-icons/gi";
 
 export default function Header() {
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {
-    navigate("/register");
     dispatch(logout());
+    navigate("/register");
     dispatch(reset());
   };
   return (
     <>
       <div className="header">
         <div className="logo">
-          <Link to={"/"}>
+          <p>
             <GiSurfBoard /> &nbsp; The Bored App
-          </Link>
+          </p>
         </div>
         <ul>
           {/* Check if there is a user preset */}
