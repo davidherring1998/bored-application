@@ -10,6 +10,7 @@ import {
   RiLogoutBoxLine,
   RiUserShared2Line,
 } from "react-icons/ri";
+import { ImPacman } from "react-icons/im";
 import { GiSurfBoard } from "react-icons/gi";
 
 export default function Header() {
@@ -28,7 +29,7 @@ export default function Header() {
       <div className="header">
         <div className="logo">
           <p>
-            <GiSurfBoard /> &nbsp; The Bored App
+            <ImPacman />  The Bored App
           </p>
         </div>
         <ul>

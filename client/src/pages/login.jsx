@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { login, reset } from "../features/auth/authSlice";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
+import "../css/pages/login.css";
 
 // ****
 import { RiLoginBoxLine } from "react-icons/ri";
@@ -60,26 +61,29 @@ function Login() {
       [e.target.name]: e.target.value,
     }));
   };
-  return (
-    <>
-      <div className="heading">
-        <h1>
-          <RiLoginBoxLine />
-          Login
-        </h1>
-        <p>Please login to your account!</p>
-      </div>
 
+  const onRegister = (e) => {
+    e.preventDefault();
+    navigate("/register");
+  };
+  return (
+    <div className="login-page">
       <div className="form login-form">
         <form onSubmit={onSubmit}>
           <div className="form-items">
+            <div className="heading">
+              <h1>
+                <RiLoginBoxLine />
+                Login
+              </h1>
+            </div>
             <input
               type="text"
               className="form-input"
               id="email"
               name="email"
               value={email}
-              placeholder="Email.."
+              placeholder="Enter your email.."
               onChange={onChange}
             />
             <input
@@ -88,10 +92,13 @@ function Login() {
               id="password"
               name="password"
               value={password}
-              placeholder="Password.."
+              placeholder="Enter your password.."
               onChange={onChange}
             />
           </div>
+          <button onClick={onRegister} className="redirect-btn ">
+            Don't have an account?
+          </button>
           <div className="form-items">
             <button className="btn-block" type="submit">
               Submit
@@ -99,7 +106,7 @@ function Login() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

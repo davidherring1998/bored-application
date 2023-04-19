@@ -6,7 +6,7 @@ import { register, reset } from "../features/auth/authSlice";
 // *******
 import { RiUserShared2Line } from "react-icons/ri";
 import { toast } from "react-toastify";
-import "../css/global.css";
+import "../css/pages/register.css";
 
 function Register() {
   // set form state
@@ -62,16 +62,19 @@ function Register() {
       [e.target.name]: e.target.value,
     }));
   };
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
   return (
     <>
-      <div className="heading">
-        <h1>
-          <RiUserShared2Line /> Sign Up{" "}
-        </h1>
-        <p>Please create a account!</p>
-      </div>
-
-      <div className="form">
+      <div className="reg-form">
+        <div className="heading">
+          <h1>
+            <RiUserShared2Line /> Sign Up{" "}
+          </h1>
+        </div>
         <form onSubmit={onSubmit}>
           <div className="form-items">
             <input
@@ -120,8 +123,11 @@ function Register() {
               onChange={onChange}
             />
           </div>
+          <button onClick={onLogin} className="redirect-btn ">
+            Already have an account?
+          </button>
           <div className="form-items">
-            <button className="btn-block" type="submit">
+            <button className="btn-block reg-btn" type="submit">
               Submit
             </button>
           </div>

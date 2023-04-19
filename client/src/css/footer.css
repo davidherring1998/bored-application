@@ -1,10 +1,18 @@
+:root {
+  --black: #000807;
+  --grey: #a2a3bb;
+  --aqua: #3bf4fb;
+  --white: #fbf9ff;
+  --orange: #c20114;
+}
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   margin: auto;
   width: 100%;
-  border-top: 1px solid coral;
+  border-top: 1px solid var(--grey);
+  background-color: rgb(59, 244, 251, 0.2);
 }
 
 .footer p {

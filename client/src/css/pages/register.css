@@ -1,0 +1,22 @@
+.reg-form {
+  border: 1px solid var(--grey);
+  border-radius: 1px;
+  background-color: rgb(59, 244, 251, 0.2);
+  height: 57vh;
+  margin-top: 15vh;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+@media (max-width: 600px) {
+    .reg-btn {
+      /* margin-top: -.1px; */
+      margin-top: 10px;
+    }
+  }
+  @media (min-width: 800px) {
+    .reg-btn {
+        /* margin-top: -.1px; */
+        margin-top: 5px;
+      }
+  }
