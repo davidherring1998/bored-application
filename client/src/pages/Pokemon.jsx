@@ -37,8 +37,8 @@ function Pokemon() {
   };
 
   return (
-    <>
-      <div className="main-container">
+    <div className="bgImageOne">
+      <div className="main-pokemon-container">
         <div className="pokemon-header">
           <h2 className="page-header">
             {pokemon.name ? pokemon.name.toUpperCase() : `Find Your Pokemon!`}
@@ -80,7 +80,7 @@ function Pokemon() {
       ) : (
         <div></div>
       )}
-    </>
+    </div>
   );
 }
 

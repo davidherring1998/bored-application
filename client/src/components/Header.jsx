@@ -15,6 +15,7 @@ import { ImPacman } from "react-icons/im";
 import { MdCatchingPokemon } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
+import {AiOutlineQuestionCircle} from 'react-icons/ai'
 
 export default function Header() {
   const navigate = useNavigate();
@@ -54,13 +55,13 @@ export default function Header() {
                   </button>
                 </Link>
               </li>
-              {/* <li>
-                <Link to={"/profile"}>
+              <li>
+                <Link to={"/trivia"}>
                   <button className="logout-btn btn">
-                    <CgProfile />
+                    <AiOutlineQuestionCircle />
                   </button>
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link to={"/"}>
                   <button className="logout-btn btn">

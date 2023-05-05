@@ -10,6 +10,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import Home from "./pages/home";
 import Pokemon from "./pages/Pokemon";
+import Trivia from "./pages/Trivia";
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/pokemon" element={<Pokemon />} />
+          <Route path="/trivia" element={<Trivia />} />
         </Routes>
         <Footer />
       </Router>

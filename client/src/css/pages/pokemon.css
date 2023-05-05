@@ -1,5 +1,6 @@
 .pokemon-header h2 {
   margin-top: 8.5%;
+  
 }
 .input {
   margin-top: 5%;
@@ -15,6 +16,8 @@
   margin: auto;
   height: 30px;
   font-size: 20px;
+  
+  
 }
 .btn-div {
   margin-top: -0.5%;
@@ -39,8 +42,8 @@
   align-items: center; /* center vertically */
 }
 .pokemon-img img {
-    width: 150px;
-    height: 150px;
+  width: 150px;
+  height: 150px;
 }
 
 .result-container {
