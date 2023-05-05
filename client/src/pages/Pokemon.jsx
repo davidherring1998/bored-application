@@ -45,7 +45,7 @@ function Pokemon() {
           </h2>
         </div>
         <div className="pokemon-img">
-          <img src={pokemon.img} alt="" />
+          {pokemon.img ? <img src={pokemon.img} alt="" /> : <div></div>}
         </div>
         <div className="input">
           <input
