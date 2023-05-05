@@ -11,6 +11,7 @@ import {
   RiUserShared2Line,
 } from "react-icons/ri";
 import { ImPacman } from "react-icons/im";
+import { AiOutlineHome } from "react-icons/ai";
 import { GiSurfBoard } from "react-icons/gi";
 
 export default function Header() {
@@ -29,17 +30,26 @@ export default function Header() {
       <div className="header">
         <div className="logo">
           <p>
-            <ImPacman />  The Bored App
+            <ImPacman /> The Bored App
           </p>
         </div>
         <ul>
           {/* Check if there is a user preset */}
           {user ? (
-            <li>
-              <button className="logout-btn btn" onClick={onLogout}>
-                <RiLogoutBoxLine /> Logout
-              </button>
-            </li>
+            <>
+              <li>
+                <Link>
+                  <button className="logout-btn btn">
+                    <AiOutlineHome /> Home
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <button className="logout-btn btn" onClick={onLogout}>
+                  <RiLogoutBoxLine /> Logout
+                </button>
+              </li>
+            </>
           ) : (
             <>
               <li>

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import "../css/pages/homepage.css";
 
 function Home() {
   // set state for news data
@@ -27,7 +29,6 @@ function Home() {
       })
       .then((data) => {
         setNewsData(data.results);
-        console.log(newsData);
       })
       .catch((err) => console.log(err));
   }, [user]);
@@ -36,7 +37,6 @@ function Home() {
     if (isError) {
       console.log(message);
     }
-
     if (!user) {
       navigate("/login");
     }
@@ -48,12 +48,16 @@ function Home() {
 
   return (
     <>
-      <h2>The New York Times</h2>
+      <h2 className="page-header">The New York Times</h2>
       <div className="article-container">
         {newsData.map((items) => (
-          <div key={items.id}>
+          <div className="card" key={items.id}>
             <h5>{items.title}</h5>
-            <p>{items.abstract}</p>
+            <p className="abstract">{items.abstract}</p>
+            <address className="byline">{items.byline}</address>
+            <Link to={items.url} target='_blank'>
+              <button className="learn-more-btn ">Learn More</button>
+            </Link>
           </div>
         ))}
       </div>

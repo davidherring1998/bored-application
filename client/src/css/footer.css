@@ -6,11 +6,11 @@
   --orange: #c20114;
 }
 .footer {
-  position: fixed;
-  
+  position: relative;
   left: 0;
   bottom: 0;
   margin: auto;
+  margin-top: 35%;
   width: 100%;
   border-top: 1px solid var(--grey);
   background-color: rgb(59, 244, 251, 0.2);
