@@ -1,26 +1,25 @@
-:root {
-  --black: #000807;
-  --grey: #a2a3bb;
-  --aqua: #3bf4fb;
-  --white: #fbf9ff;
-  --orange: #c20114;
-}
-
 .page-header {
   font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
-  font-size: 5vw;
+  font-size: 4vw;
   color: var(--orange);
-  margin-bottom: 10%;
-  margin-top: 10%;
+  margin-bottom: 5%;
+  margin-top: 2%;
 }
 
+.main-container {
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+/* new york times  */
 .article-container {
   display: flex;
   flex-direction: column;
   margin: 5%;
   padding: 2%;
-
+  display: flex;
+  /* width: 60%; */
 }
 
 .card {
@@ -36,16 +35,17 @@
 
 .card h5 {
   text-align: center;
-  font-size: 2.4vw;
+  font-size: 2vw;
 }
 
 .abstract {
   text-align: center;
-  font-size: 2.1vw;
+  font-size: 1.5vw;
+  margin-bottom: 3%;
 }
 
 .byline {
-  font-size: 1.5vw;
+  font-size: 1vw;
   color: var(--black);
 }
 
@@ -59,4 +59,14 @@
 .learn-more-btn:hover {
   background-color: var(--orange);
   color: var(--white);
+}
+
+/* weather */
+.weather {
+  border: 1px solid black;
+  width: 30%;
+  height: 755px;
+  margin-top: 5%;
+  margin-right: 5%;
+
 }

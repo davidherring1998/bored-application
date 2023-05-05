@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import Weather from "../components/weather";
 import "../css/pages/homepage.css";
 
 function Home() {
@@ -47,9 +48,9 @@ function Home() {
   }
 
   return (
-    <>
-      <h2 className="page-header">The New York Times</h2>
+    <div className="main-container">
       <div className="article-container">
+      <h2 className="page-header">The New York Times</h2>
         {newsData.map((items) => (
           <div className="card" key={items.id}>
             <h5>{items.title}</h5>
@@ -61,7 +62,10 @@ function Home() {
           </div>
         ))}
       </div>
-    </>
+      {/* <div className="weather"> */}
+          {/* <Weather /> */}
+          {/* </div> */}
+    </div>
   );
 }
 

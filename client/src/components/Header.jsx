@@ -54,13 +54,13 @@ export default function Header() {
                   </button>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={"/profile"}>
                   <button className="logout-btn btn">
                     <CgProfile />
                   </button>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={"/"}>
                   <button className="logout-btn btn">
