@@ -56,7 +56,7 @@ function Home() {
             <p className="abstract">{items.abstract}</p>
             <address className="byline">{items.byline}</address>
             <Link to={items.url} target='_blank'>
-              <button className="learn-more-btn ">Learn More</button>
+              <button className="learn-more-btn">Learn More</button>
             </Link>
           </div>
         ))}

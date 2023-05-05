@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 //*****
 import { logout, reset } from "../features/auth/authSlice";
 import "../css/header.css";
@@ -11,8 +12,9 @@ import {
   RiUserShared2Line,
 } from "react-icons/ri";
 import { ImPacman } from "react-icons/im";
-import { AiOutlineHome } from "react-icons/ai";
-import { GiSurfBoard } from "react-icons/gi";
+import { MdCatchingPokemon } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
+import { FaHome } from "react-icons/fa";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -20,33 +22,55 @@ export default function Header() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const onLogout = () => {
     dispatch(logout());
     navigate("/register");
     dispatch(reset());
   };
+
+  const handleDropDown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
       <div className="header">
         <div className="logo">
-          <p>
-            <ImPacman /> The Bored App
-          </p>
+          <Link to={"/"}>
+            <p>
+              <ImPacman /> The Bored App
+            </p>
+          </Link>
         </div>
-        <ul>
+        <ul className="large-nav">
           {/* Check if there is a user preset */}
           {user ? (
             <>
               <li>
-                <Link>
+                <Link to={"/pokemon"}>
                   <button className="logout-btn btn">
-                    <AiOutlineHome /> Home
+                    <MdCatchingPokemon />
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to={"/profile"}>
+                  <button className="logout-btn btn">
+                    <CgProfile />
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to={"/"}>
+                  <button className="logout-btn btn">
+                    <FaHome />
                   </button>
                 </Link>
               </li>
               <li>
                 <button className="logout-btn btn" onClick={onLogout}>
-                  <RiLogoutBoxLine /> Logout
+                  <RiLogoutBoxLine />
                 </button>
               </li>
             </>
@@ -64,6 +88,22 @@ export default function Header() {
               </li>
             </>
           )}
+          {/* <div className="small-nav">
+            <button onClick={handleDropDown}>Menu</button>
+            {isOpen && (
+              <ul className="dropdown-menu">
+                <li>
+                  <a href="#">Item 2</a>
+                </li>
+                <li>
+                  <a href="#">Item 2</a>
+                </li>
+                <li>
+                  <a href="#">Item 3</a>
+                </li>
+              </ul>
+            )}
+          </div> */}
         </ul>
       </div>
     </>

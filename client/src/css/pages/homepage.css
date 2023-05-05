@@ -16,11 +16,11 @@
 }
 
 .article-container {
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   margin: 5%;
   padding: 2%;
+
 }
 
 .card {
@@ -30,6 +30,8 @@
   flex-direction: column;
   margin: 2.5%;
   padding: 2%;
+  border: 5px solid var(--orange);
+  background-color: rgb(59, 244, 251, 0.2);
 }
 
 .card h5 {
@@ -40,15 +42,21 @@
 .abstract {
   text-align: center;
   font-size: 2.1vw;
-
 }
 
-.byline{
-    font-size: 1.5vw;
+.byline {
+  font-size: 1.5vw;
+  color: var(--black);
 }
 
-.learn-more-btn{
-    width: 100%;
-    margin: auto;
-    margin-top: 10px;
+.learn-more-btn {
+  width: 100%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  background-color: var(--white);
+}
+.learn-more-btn:hover {
+  background-color: var(--orange);
+  color: var(--white);
 }

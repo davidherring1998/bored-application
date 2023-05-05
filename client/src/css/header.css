@@ -13,11 +13,14 @@
   padding: 10px;
   background-color: rgb(59, 244, 251, 0.2);
 }
-.logout-btn{
+.logout-btn {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
+}
+.btn:hover {
+  color: var(--orange);
 }
 .logo p {
   color: var(--orange);
@@ -72,6 +75,15 @@
     font-size: 0.7rem;
   }
   .header ul li {
-    font-size: .9rem;
+    font-size: 0.2rem;
+  }
+  .logout-btn {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .logout-btn {
+    margin: -12px;
+    font-size: 1.1rem;
   }
 }
