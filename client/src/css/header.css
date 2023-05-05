@@ -13,6 +13,12 @@
   padding: 10px;
   background-color: rgb(59, 244, 251, 0.2);
 }
+.logout-btn{
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 .logo p {
   color: var(--orange);
 }

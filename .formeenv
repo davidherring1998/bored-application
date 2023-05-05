@@ -3,3 +3,17 @@
 user: david
 password: cMc233vFmAa5oFqB
 MONGO_URI='mongodb+srv://david:cMc233vFmAa5oFqB@cluster0.7nclw2s.mongodb.net/?retryWrites=true&w=majority's
+
+
+
+
+new york times: 
+ex request: 
+https://api.nytimes.com/svc/archive/v1/2019/1.json?api-key=yourkey
+
+key: ZiUzWfcN4TX6yW807m6vUEVdMzgGPDJV
+secret: lM81XxnB9ppGOnyt
+
+
+ex for most viewed request
+https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=yourkey
