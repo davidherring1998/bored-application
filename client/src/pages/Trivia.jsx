@@ -1,10 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+import "../css/pages/trivia.css";
 
 function Trivia() {
   const [answer, setAnswer] = useState({ answer: "" });
   const [question, setQuestion] = useState({ question: "" });
   const [userInput, setUserInput] = useState("");
+  const [correct, setCorrectAnswer] = useState(null);
+
+  const inputRef = useRef(null);
 
   const url = "https://trivia-by-api-ninjas.p.rapidapi.com/v1/trivia";
   const options = {
@@ -24,28 +29,64 @@ function Trivia() {
         setQuestion({ question: data.question });
       })
       .catch((err) => console.log(err));
+
+    setCorrectAnswer(null);
+  };
+
+  const lowerCaseInput = userInput.toLowerCase();
+  const lowerCaseAnswer = answer.answer.toLowerCase();
+
+  const handleInputChange = (e) => setUserInput(e.target.value);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (lowerCaseAnswer === lowerCaseInput) {
+      setCorrectAnswer(true);
+      console.log("correct");
+    } else {
+      setCorrectAnswer(false);
+      console.log("Nope");
+    }
   };
 
   return (
     <>
-      <div className="main-container">
-        <div className="trivia-header">
-          <h2 className="page-header">Let's Play Trivia!</h2>
+        <div className="main-container">
+          <div className="trivia-header">
+            <h2 className="page-header">Let's Play Trivia!</h2>
+          </div>
+          <div className="question-div">
+            <h5>{question.question}</h5>
+          </div>
+          <div className="user-answer">
+            <input
+              type="text"
+              placeholder="Write your answer here..."
+              value={userInput}
+              onChange={handleInputChange}
+              ref={inputRef}
+            />
+          </div>
+          <div className="submit-btn">
+            <button onClick={handleClick}>Submit</button>
+          </div>
+          <div className="answer">
+            {correct === false ? (
+              <h6>Correct Answer: {answer.answer}!</h6>
+            ) : (
+              <div></div>
+            )}
+            {correct === false ? <h6>&nbsp;</h6> : <div></div>}
+          </div>
         </div>
-        <div className="question-div">
-          <h5>
-            Question: <span>{question.question}</span>
-          </h5>
+        <div className="refresh submit-btn">
+          <button
+            className="submit-btn"
+            onClick={response}
+          >
+            Start
+          </button>
         </div>
-        <div className="user-answer">
-          <input type="text" />
-        </div>
-        <div className="answer"></div>
-        <h6>Answer: {answer.answer}</h6>
-      </div>
-      <div className="refresh">
-        <button onClick={response}>Next</button>
-      </div>
     </>
   );
 }

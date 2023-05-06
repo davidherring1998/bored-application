@@ -1,0 +1,56 @@
+:root {
+  --black: #000807;
+  --grey: #a2a3bb;
+  --aqua: #3bf4fb;
+  --white: #fbf9ff;
+  --orange: #c20114;
+}
+
+.question-div {
+  /* border: 1px solid black; */
+}
+.question-div h5 {
+  /* border: 1px solid black; */
+  text-align: center;
+  font-size: 2.5vw;
+}
+
+.user-answer {
+  display: flex;
+  justify-content: center;
+}
+.user-answer input {
+  width: 25%;
+  height: 20px;
+  border: 1px solid var(--orange);
+  border-radius: 4px;
+  margin-bottom: 3%;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+.submit-btn button {
+  border: 1px solid var(--orange);
+  width: 20%;
+  padding: 5px;
+  border-radius: 4px;
+}
+.submit-btn button:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.answer {
+  padding: 10px;
+  margin-top: 5%;
+  text-align: center;
+  font-size: 2.5vw;
+  color: var(--orange);
+}
+/* .answer h6 { */
+  /* } */
+
+  
+  /* const [correctAnswer, setCorrectAnswer] = useState(null); */
