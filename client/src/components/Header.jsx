@@ -5,7 +5,8 @@ import { useState } from "react";
 //*****
 import { logout, reset } from "../features/auth/authSlice";
 import "../css/header.css";
-//*****
+
+//***** react icons 
 import {
   RiLoginBoxLine,
   RiLogoutBoxLine,
@@ -16,6 +17,7 @@ import { MdCatchingPokemon } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
 import {AiOutlineQuestionCircle} from 'react-icons/ai'
+import {BsChatDots} from 'react-icons/bs'
 
 export default function Header() {
   const navigate = useNavigate();
@@ -48,6 +50,13 @@ export default function Header() {
           {/* Check if there is a user preset */}
           {user ? (
             <>
+             <li>
+                <Link to={"/chat"}>
+                  <button className="logout-btn btn">
+                    < BsChatDots/>
+                  </button>
+                </Link>
+              </li>
               <li>
                 <Link to={"/pokemon"}>
                   <button className="logout-btn btn">

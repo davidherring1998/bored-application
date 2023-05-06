@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import Weather from "../components/weather";
+// import Weather from "../components/weather";
 import "../css/pages/homepage.css";
 
 function Home() {

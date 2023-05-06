@@ -1,16 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useRef } from "react";
 import "../css/pages/trivia.css";
 
 function Trivia() {
+  // state
   const [answer, setAnswer] = useState({ answer: "" });
   const [question, setQuestion] = useState({ question: "" });
   const [userInput, setUserInput] = useState("");
   const [correct, setCorrectAnswer] = useState(null);
 
-  const inputRef = useRef(null);
-
+  // API info
   const url = "https://trivia-by-api-ninjas.p.rapidapi.com/v1/trivia";
   const options = {
     method: "GET",
@@ -20,6 +19,7 @@ function Trivia() {
     },
   };
 
+  // API call
   const response = () => {
     fetch(url, options)
       .then((res) => res.json())
@@ -33,9 +33,11 @@ function Trivia() {
     setCorrectAnswer(null);
   };
 
+  //   lower case input/response
   const lowerCaseInput = userInput.toLowerCase();
   const lowerCaseAnswer = answer.answer.toLowerCase();
 
+  //   event handlers
   const handleInputChange = (e) => setUserInput(e.target.value);
 
   const handleClick = (e) => {
@@ -51,42 +53,38 @@ function Trivia() {
 
   return (
     <>
-        <div className="main-container">
-          <div className="trivia-header">
-            <h2 className="page-header">Let's Play Trivia!</h2>
-          </div>
-          <div className="question-div">
-            <h5>{question.question}</h5>
-          </div>
-          <div className="user-answer">
-            <input
-              type="text"
-              placeholder="Write your answer here..."
-              value={userInput}
-              onChange={handleInputChange}
-              ref={inputRef}
-            />
-          </div>
-          <div className="submit-btn">
-            <button onClick={handleClick}>Submit</button>
-          </div>
-          <div className="answer">
-            {correct === false ? (
-              <h6>Correct Answer: {answer.answer}!</h6>
-            ) : (
-              <div></div>
-            )}
-            {correct === false ? <h6>&nbsp;</h6> : <div></div>}
-          </div>
+      <div className="main-container">
+        <div className="trivia-header">
+          <h2 className="page-header">Let's Play Trivia!</h2>
         </div>
-        <div className="refresh submit-btn">
-          <button
-            className="submit-btn"
-            onClick={response}
-          >
-            Start
-          </button>
+        <div className="question-div">
+          <h5>{question.question}</h5>
         </div>
+        <div className="user-answer">
+          <input
+            type="text"
+            placeholder="Write your answer here..."
+            value={userInput}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="submit-btn">
+          <button onClick={handleClick}>Submit</button>
+        </div>
+        <div className="answer">
+          {correct === false ? (
+            <h6>Correct Answer: {answer.answer}!</h6>
+          ) : (
+            <></>
+          )}
+          {correct === false ? <h6>&nbsp;</h6> : <div></div>}
+        </div>
+      </div>
+      <div className="refresh submit-btn">
+        <button className="submit-btn" onClick={response}>
+          Start
+        </button>
+      </div>
     </>
   );
 }
